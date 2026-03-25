@@ -1,18 +1,15 @@
 <?php
 session_start();
 include("db.php");
-
 if (!isset($_SESSION['admin_id'])) {
     header("Location: admin_login.php");
     exit();
 }
-
 $teachers = mysqli_fetch_assoc(mysqli_query($conn,"SELECT COUNT(*) as total FROM teachers"))['total'];
 $students = mysqli_fetch_assoc(mysqli_query($conn,"SELECT COUNT(*) as total FROM students"))['total'];
 $subjects = mysqli_fetch_assoc(mysqli_query($conn,"SELECT COUNT(*) as total FROM subjects"))['total'];
 $sessions = mysqli_fetch_assoc(mysqli_query($conn,"SELECT COUNT(*) as total FROM session_qr"))['total'];
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
